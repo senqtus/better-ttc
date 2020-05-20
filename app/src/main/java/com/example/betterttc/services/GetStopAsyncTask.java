@@ -23,7 +23,7 @@ public class GetStopAsyncTask extends AsyncTask<String, Void, ArrayList<BusSched
             String url = String.format("http://transfer.ttc.com.ge:8080/otp/routers/ttc/stopArrivalTimes?stopId=%s",stopId);
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("http://transfer.ttc.com.ge:8080/otp/routers/ttc/routes")
+                    .url(url)
                     .build();
             Response response = client.newCall(request).execute();
             xmlData = response.body().string();
@@ -33,6 +33,8 @@ public class GetStopAsyncTask extends AsyncTask<String, Void, ArrayList<BusSched
             for(int i=0;i<elements.size(); i++)
             {
                     BusSchedule bus = new BusSchedule();
+                    radgan saitze xml ar iyo
+                    pirobitad shevqmeni tagebi
                     bus.setBusNumber(elements.get(i).getElementsByTag("BusNumber").get(0).text());
                     bus.setArrivalTimeLeft(elements.get(i).getElementsByTag("TimeLeft").get(0).text());
                     buses.add(bus);
@@ -40,6 +42,8 @@ public class GetStopAsyncTask extends AsyncTask<String, Void, ArrayList<BusSched
             }
             */
 
+
+            //static data for test
             for(int i=0;i<3; i++)
             {
                 BusSchedule bus = new BusSchedule();
